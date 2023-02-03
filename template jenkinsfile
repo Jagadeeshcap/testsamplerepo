@@ -1,0 +1,31 @@
+pipeline{
+    agent any
+    stages{
+        stage("Stage 1"){
+            steps{
+                sh "pip3 --version"
+            }
+        }
+        stage("Stage 2"){
+            steps{
+                sh "python3 --version"
+            }
+        }
+        stage("Stage 3"){
+            steps{
+                echo "This is stage 3"
+            }
+        }
+        stage("Stage 4"){
+            steps{
+                sh "docker --version"
+            }
+        }
+        stage("Stage 5"){
+            steps{
+                sh "/usr/local/bin/kubectl get pods -A"
+            }
+        }
+    }
+
+}
