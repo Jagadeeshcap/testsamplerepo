@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages { 
-        stage('Example') {
+        
             steps {
                 git " url: https://github.com/Jagadeeshcap/testsamplerepo.git"
                 echo 'Hello World'
