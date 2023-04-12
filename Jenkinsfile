@@ -1,28 +1,21 @@
-pipeline { 
-  
-   agent any
+pipeline {
+    agent any 
+    stages {
+        stage('Compile and Clean') { 
+            steps {
 
-   stages {
-   
-     stage('Install Dependencies') { 
-        steps { 
-           sh 'npm install' 
+                echo "mvn clean compile"
+            }
         }
-     }
-     
-     stage('Test') { 
-        steps { 
-           sh 'echo "testing application..."'
+        stage('Test') { 
+            steps {
+                echo "mvn test "
+            }
         }
-      }
-
-         stage("Deploy application") { 
-         steps { 
-           sh 'echo "deploying application..."'
-         }
-
-     }
-  
-   	}
-
-   }
+        stage('Deploy') { 
+            steps {
+                echo "mvn package"
+            }
+        }
+    }
+}
