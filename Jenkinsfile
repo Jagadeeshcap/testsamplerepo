@@ -1,15 +1,28 @@
-pipeline {
-    agent any
-    stages {
-        stage('Example') {
-            steps {
-                echo 'Hello World'
-            }
+pipeline { 
+  
+   agent any
+
+   stages {
+   
+     stage('Install Dependencies') { 
+        steps { 
+           sh 'npm install' 
         }
-    }
-    post { 
-        always { 
-            echo 'I will always say Hello again!'
+     }
+     
+     stage('Test') { 
+        steps { 
+           sh 'echo "testing application..."'
         }
-    }
-}
+      }
+
+         stage("Deploy application") { 
+         steps { 
+           sh 'echo "deploying application..."'
+         }
+
+     }
+  
+   	}
+
+   }
